@@ -1,0 +1,8 @@
+# ignore the database file
+db.sqlite3
+
+# ignore compiled Python files
+*.pyc
+
+# ignore the virtual environment folder
+venv/

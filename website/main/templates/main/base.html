@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Title</title>
+  <title>{% block title%} MY SITE {% endblock %}</title>
+    <style>
+        img {
+        position: absolute;
+        width: 100%;
+        left: 0px;
+        top: 0px;
+        z-index: -1;
+}
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+  <div class="container-fluid">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link active" href="#">Home</a>
+      </li>
+
+    </ul>
+  </div>
+    <div>
+
+ <div>
+     <ul class="nav navbar-nav navbar-right">
+         {% if user.is_authenticated %}
+       <span class="navbar-text">  Logged in as {{user.username}} | </span>
+
+       <li class="nav-item">
+         <a class="nav-link" href="/logout">Logout</a>
+       </li>
+         {% else %}
+       <li class="nav-item">
+         <a class="nav-link" href="/login">Login</a>
+       </li>
+
+         {% endif %}
+     </ul>
+   </div>
+</div>
+</nav>
+<div class="container">
+   <div>
+    <img src="{% static 'chatbot.png' %}">
+  </div>
+</div>
+{% block content %}
+{% endblock %}
+
+
+</body>
+</html>
+
